@@ -2,20 +2,17 @@ import React from "react"
 import GoogleMap from "./Map";
 import Gallery from "./Gallery";
 import Timeline from "./Timeline";
+import {homeView} from "../GlobalUtils/helper";
 
 const Home = () => {
-    const size = window.innerWidth
-    const direction = size >= 1200 ? "flex" : size < 768 ? "block" : size >= 768 ? "block" : "flex"
-    const offset = size >= 1200 ? "offset-md-1" : size < 768 ? "" : size >= 768 ? "" : ""
-    const container = size >= 1200 ? "container" : size < 768 ? "" : size >= 768 ? "" : ""
-    const width = size >= 1200 ? 250 : size < 768 ? size : size >= 768 ? size :  0
+    const data = homeView(window.innerWidth)
     return (
-        <div className={`top-padding ${container}`}>
-            <div style={{display: direction }}>
+        <div className={`top-padding ${data && data.container}`}>
+            <div style={{display: data && data.direction }}>
                 <div>
                     <GoogleMap/>
                 </div>
-                <div className={`screen-color ${offset}`}>
+                <div className={`screen-color ${data && data.offset}`}>
                     <div className="left-padding">
                         <div className="row">
                             <div className="col-md-8">
@@ -37,10 +34,10 @@ const Home = () => {
                                 <img
                                     src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
                                     className='rounded-img' alt='Sample'
-                                    height={25} width={25}/>
-                                <span className="font-color content-font">Austin Police Department</span>
+                                    height={25} width={25} />
+                                <span className="font-color content-font align-name">Austin Police Department</span>
                             </div>
-                        </div><br/>
+                        </div><br/><br/>
                         <div>
                             <div className='topic-font topic-color'>DETAILS</div>
                             <div>
@@ -63,13 +60,13 @@ const Home = () => {
                             <div className='col-12 topic-font topic-color'>ATTACHMENT</div>
                             <div className='col-2'>
                                 <div className="rounded-corner">
-                                    <i className="fa fa-file-text file-icon-color"/> <span className="font-color">Missing_Flyer.pdf</span>
+                                    <i className="fa fa-file-text icon-color"/> <span className="font-color">Missing_Flyer.pdf</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="offset-md-1" style={{width}}>
+                <div className="offset-md-1" style={{width: data && data.width}}>
                     <Gallery/>
                     <Timeline/>
                 </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {mapSize} from "../GlobalUtils/helper";
 
 class GoogleMap extends Component {
 
@@ -190,11 +191,9 @@ class GoogleMap extends Component {
     }
 
     render() {
-        const size = window.innerWidth
-        const width = size >= 1200 ? 250 : size < 768 ? size : size >= 768 ? size : 0
-        const height = size >= 1200 ? "100%" : size < 768 ? size : size >= 768 ? 400 : 0
+        const size = mapSize(window.innerWidth)
         return (
-            <div style={{ width, height }} id="map" />
+            <div style={{ width: size.width , height: size.height }} id="map" />
         )
     }
 }

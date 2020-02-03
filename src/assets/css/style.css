@@ -105,6 +105,7 @@
 
 .rounded-img {
     border-radius: 50%;
+    float: left;
 }
 
 .rounded-corner {
@@ -139,8 +140,18 @@
     color: #0cebd8
 }
 
-.file-icon-color {
+.icon-color {
     color: #00AEEF
+}
+
+.align-name {
+    float: left;
+    padding-left: 5px;
+    padding-top: 3px;
+}
+
+.timeline-align {
+    padding-left: 10px;
 }
 /* -------------------timeline css---------------------- */
 
